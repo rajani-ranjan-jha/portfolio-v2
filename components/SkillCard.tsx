@@ -1,30 +1,84 @@
-import React from 'react'
-type SkillCard = {
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import Image from "next/image";
+
+type Skill = {
   name: string;
   category: string;
   level: number;
   url?: string;
-}
-const SkillCard = ({SkillData}:{SkillData:SkillCard[]}) => {
-  return (
-    <div id='skills' className = 'w-full border-t-2 py-10 flex flex-col justify-center items-center'>
-      <h1 className='text-center font-semibold text-3xl my-5'>My Skills</h1>
-      <div className='w-full flex flex-wrap justify-between gap-5 border  p-10'>
-        { SkillData.map((skill, index) => (
-        <div key={index} className='p-10 min-w-80 text-2xl flex flex-col items-start justify-center border border-white/50 rounded-md gap-2'>
-          <div className = 'gap-2 flex items-center'>
-            <img className='w-10' src={`/assets/languages/${skill.name.toLowerCase().replaceAll(' ','')}.png`} alt={skill.name} />
-            <h2 className='capitalize'>{skill.name}</h2>
-          </div>
-          <div className='h-2 bg-white w-full rounded-full'>
-            <div className={`bg-red-500 h-full rounded-full animate-loading`} style={{width: `${skill.level}%` }} ></div>
-          </div>
-        </div>
-      ))
-      }
-      </div>
-    </div>
-  )
-}
+};
 
-export default SkillCard
+const SkillCard = ({ SkillData }: { SkillData: Skill[] }) => {
+  // Group skills by category
+  const categories = Array.from(new Set(SkillData.map((s) => s.category)));
+  const [currentSkills, setCurrentSkills] = useState(
+    SkillData.filter((s) => s.category === categories[0]),
+  );
+
+  const handleCategoryChange = (category: string) => {
+    setCurrentSkills(SkillData.filter((s) => s.category === category));
+  };
+
+  return (
+    <section id="skills" className="py-20 px-6 bg-secondary/30">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Skills & Technologies
+        </h2>
+        <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+      </motion.div>
+
+      <div className="max-w-6xl mx-auto space-y-12 flex flex-col">
+        <div className="flex flex-1 gap-3 justify-center items-center">
+          {categories.map((category, catIdx) => (
+            <h3
+              key={category}
+              onClick={() => handleCategoryChange(category)}
+              className="text-md font-semibold mb-6 capitalize text-muted-foreground border border-border px-3 py-2 rounded-full inline-block cursor-default hover:bg-primary/10 transition-all duration-200 hover:scale-105"
+            >
+              {category}
+            </h3>
+          ))}
+        </div>
+          <div className="flex justify-center flex-wrap gap-4 mx-auto">
+            {currentSkills.map((skill, idx) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: (idx % 5) * 0.05 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 20px -10px rgba(0,0,0,0.1)",
+                }}
+                className="bg-card px-4 py-3 rounded-xl border border-border flex items-center gap-3 shadow-sm hover:border-primary/50 transition-colors cursor-default"
+              >
+                <div className="w-2 h-2 rounded-full bg-primary/60" />
+                <Image
+                  width={20}
+                  height={20}
+                  src={`/assets/skills/${skill.name.toLowerCase().replaceAll(" ", "")}.png`}
+                  alt={skill.name}
+                  // fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <span className="font-medium capitalize">{skill.name}</span>
+              </motion.div>
+            ))}
+          </div>
+      </div>
+    </section>
+  );
+};
+
+export default SkillCard;

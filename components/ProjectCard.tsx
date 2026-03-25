@@ -1,56 +1,97 @@
-type ProjectCard = {
-  mediaUrl: string;
+"use client"
+import React from 'react'
+import Image from 'next/image'
+import { motion } from 'motion/react'
+import { Github, ExternalLink } from 'lucide-react'
+
+
+type Project = {
+  mediaUrl?: string;
   title: string;
   description: string;
   githubUrl: string;
-  liveUrl?: string;
+  level: "basic" | "intermediate" | "advanced";
+  liveUrl?: string; // Made optional
 };
 
-const ProjectCard = ({ ProjectData }: { ProjectData: ProjectCard[] }) => {
+const ProjectCard = ({ ProjectData }: { ProjectData: Project[] }) => {
   return (
-    <div id='projects' className="w-full border-t-2 py-10 flex flex-col justify-center items-center">
-      <h1 className="text-center font-semibold text-3xl my-5">Projects</h1>
-      <div className="w-full flex flex-wrap justify-center gap-5">
-        {ProjectData.map((project, index) => (
-          <div
-            key={index}
-            className="shadow-md border border-white/50 rounded-lg hover:scale-102 transition-all duration-300 delay-100 w-full flex flex-col justify-between items-center md:flex-row gap-5"
+    <section id="projects" className="py-20 px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+        <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {ProjectData.map((project, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }} // Stagger effect
+            viewport={{ once: true }}
+            className="group relative bg-card rounded-xl overflow-hidden border border-border hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
           >
-            {/* <Image width={100} height={100}>{mediaUrl}</Image> */}
-            <img
-              className=" h-50 rounded-lg"
-              src={`/assets/projects/${project.title.toLowerCase().replaceAll(" ", "-")}.png`}
-              alt={project.title}
-              title={project.title}
-            />
-            <div className="w-full md:max-w-1/2 flex flex-col justify-center items-center gap-3">
-              <h1 className="w-full text-2xl font-semibold text-left">
-                {project.title}
-              </h1>
-              <p className="text-md"> {project.description}</p>
-              {/* tools used in the project */}
-              <div className="flex w-full items-center justify-center gap-5">
+            {/* Image Container */}
+            <div className="relative h-48 w-full overflow-hidden">
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
+              <Image
+                src={`/assets/projects/${project.title.toLowerCase().replaceAll(" ", "-")}.png`}
+                alt={project.title}
+                fill
+                className="object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="p-6 flex flex-col grow">
+              <div className="flex justify-between items-start mb-2 gap-2">
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <span className="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded-full capitalize shrink-0">
+                  {project.level}
+                </span>
+              </div>
+              <p className="text-muted-foreground text-sm line-clamp-3 mb-4 grow">
+                {project.description}
+              </p>
+
+              {/* Actions */}
+              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border">
                 <a
-                  className="px-3 py-2 border rounded-md cursor-pointer bg-red-500 text-white"
                   href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
                 >
-                  Github
+                  <Github className="w-4 h-4" />
+                  Code
                 </a>
                 {project.liveUrl && (
                   <a
-                    className="px-3 py-2 border rounded-md cursor-pointer bg-red-500 text-white"
                     href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors ml-auto"
                   >
-                    Live Page
+                    <ExternalLink className="w-4 h-4" />
+                    Live Demo
                   </a>
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
-  );
-};
+    </section>
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard
