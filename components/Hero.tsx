@@ -101,17 +101,17 @@ const Hero = () => {
         className='flex-1 flex justify-center md:justify-end relative'
       >
         <div className="relative w-72 h-72 md:w-96 md:h-96">
-          <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute inset-0 bg-primary/50 rounded-full blur-3xl animate-pulse" />
           <Image
-            src="/assets/cool-rajani.jpg"
+            src="/assets/rajani-red.jpg"
             alt={name}
             fill
-            className='object-cover rounded-full border-4 border-background shadow-2xl relative z-10'
+            className='object-cover rounded-full border-4 border-background shadow-2xl shadowre relative z-10'
             priority
           />
           {/* Decor elements */}
           <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-xl" />
-          <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary rounded-full blur-xl opacity-50" />
+          <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-xl opacity-50" />
         </div>
       </motion.div>
 

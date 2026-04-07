@@ -110,7 +110,7 @@
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.5 0.2 25);
+  --primary: rgb(255, 0, 0);
   /* Vibrant Red */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.961 0.006 264.695);
@@ -148,7 +148,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.14 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.6 0.2 25);
+    --primary: rgb(255, 0, 0);
+
   /* Slightly lighter red for dark mode */
   --primary-foreground: oklch(0.1 0 0);
   --secondary: oklch(0.25 0 0);

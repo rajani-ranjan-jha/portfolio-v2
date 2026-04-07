@@ -38,7 +38,7 @@ const SkillCard = ({ SkillData }: { SkillData: Skill[] }) => {
       </motion.div>
 
       <div className="max-w-6xl mx-auto space-y-12 flex flex-col">
-        <div className="flex flex-1 gap-3 justify-center items-center">
+        <div className="flex flex-1 flex-wrap space-x-2 justify-center items-center">
           {categories.map((category, catIdx) => (
             <h3
               key={category}

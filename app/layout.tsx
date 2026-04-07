@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rajani Ranjan Jha",
+  title: "Rajani Ranjan Jha | Portfolio",
   description: "Full stack web developer",
 };
 
