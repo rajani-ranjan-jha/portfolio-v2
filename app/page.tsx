@@ -62,77 +62,67 @@ export default function Home() {
       description: "A full-stack Todo application designed to demonstrate modern web development practices. This project is split into a client-side frontend and a server-side backend.",
       githubUrl: "https://github.com/rajani-ranjan-jha/todo-app",
       level: "intermediate",
-      mediaUrl: '/assets/cool-rajani.jpg' // Placeholder, would ideally be project specific
     },
     {
       title: "Quiz App",
       description: "An interactive quiz application built with React that leverages AI to generate dynamic questions and provide explanations.",
       githubUrl: "https://github.com/rajani-ranjan-jha/quiz-app",
       level: "intermediate",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "QR-code Generator",
-      description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam minus veniam id deleniti. Ullam non unde, sequi, excepturi accusamus vero illum dolor repellendus velit eius aperiam odit natus totam veniam.",
-      githubUrl: "github.com",
+      description: "A simple QR code generator built with HTML, CSS, and JavaScript. This project demonstrates basic web development concepts and the use of the browser's canvas API to generate QR codes.",
+      githubUrl: "https://github.com/rajani-ranjan-jha",
       level: "basic",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "GIF App",
       description: "A dynamic web application for discovering and sharing GIFs, built with React, TypeScript, and Vite. This project demonstrates modern frontend development practices and integration with third-party APIs.",
       githubUrl: "https://github.com/rajani-ranjan-jha/gif-app",
       level: "intermediate",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "News App",
       description: "A modern news application built with Next.js that fetches and displays the latest news headlines from various categories using the NewsAPI.",
       githubUrl: "https://github.com/rajani-ranjan-jha/news-app",
       level: "intermediate",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "URL shortner",
-      description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam minus veniam id deleniti. Ullam non unde, sequi, excepturi accusamus vero illum dolor repellendus velit eius aperiam odit natus totam veniam.",
-      githubUrl: "github.com",
+      description: "A URL shortening service built with HTML, CSS, and JavaScript. This project demonstrates basic web development concepts and the use of the browser's local storage to store shortened URLs.",
+      githubUrl: "https://github.com/rajani-ranjan-jha",
       level: "basic",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "Password Generator",
-      description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam minus veniam id deleniti. Ullam non unde, sequi, excepturi accusamus vero illum dolor repellendus velit eius aperiam odit natus totam veniam.",
-      githubUrl: "github.com",
+      description: "A simple password generator built with HTML, CSS, and JavaScript. This project demonstrates basic web development concepts and the use of the browser's crypto API to generate random passwords.",
+      githubUrl: "https://github.com/rajani-ranjan-jha",
       level: "basic",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "Unit Converter",
-      description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam minus veniam id deleniti. Ullam non unde, sequi, excepturi accusamus vero illum dolor repellendus velit eius aperiam odit natus totam veniam.",
-      githubUrl: "github.com",
+      description: "A simple unit converter built with HTML, CSS, and JavaScript. This project demonstrates basic web development concepts and the use of the browser's local storage to store converted units.",
+      githubUrl: "https://github.com/rajani-ranjan-jha/unit-converter",
       level: "basic",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "Weather App",
       description: "Built using React and Vite. Provides users with current weather information and forecasts based on city search or current location.",
       githubUrl: "https://github.com/rajani-ranjan-jha/weather-app",
       level: "intermediate",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "Chat Z",
       description: "A modern, real-time chat application built with Next.js 15, featuring seamless messaging, user authentication, and real-time communication powered by Socket.IO.",
       githubUrl: "https://github.com/rajani-ranjan-jha/chat-app",
       level: "advanced",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
     {
       title: "Movie Master",
       description: "Movie Master is a modern web application designed for movie enthusiasts to discover, track, and review their favorite movies and TV shows. Built with Next.js and Tailwind CSS, it offers a sleek, responsive interface with dark mode support.",
       githubUrl: "https://github.com/rajani-ranjan-jha/movie-app",
+      liveUrl: "https://moviemaster11.vercel.app/",
       level: "advanced",
-      mediaUrl: '/assets/cool-rajani.jpg'
     },
   ];
 

@@ -43,7 +43,7 @@ const SkillCard = ({ SkillData }: { SkillData: Skill[] }) => {
             <h3
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className="text-md font-semibold mb-6 capitalize text-muted-foreground border border-border px-3 py-2 rounded-full inline-block cursor-default hover:bg-primary/10 transition-all duration-200 hover:scale-105"
+              className={`text-md font-semibold mb-6 capitalize text-muted-foreground border border-border px-3 py-2 rounded-full inline-block cursor-default hover:bg-primary/10 transition-all duration-200 hover:scale-105 ${currentSkills[catIdx]?.category === category ? "bg-primary/10" : ""}`}
             >
               {category}
             </h3>
