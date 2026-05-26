@@ -108,7 +108,7 @@ const ContactMe = () => {
             onSubmit={handleFormSubmit} 
             className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-black/50 border border-gray-100 dark:border-gray-800"
           >
-            <motion.div variants={itemVariants} className="mb-6 relative group">
+            <motion.div variants={{itemVariants}} className="mb-6 relative group">
               <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300 ml-1">
                 Your Name
               </label>
@@ -129,7 +129,7 @@ const ContactMe = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mb-6 relative group">
+            <motion.div variants={{itemVariants}} className="mb-6 relative group">
               <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300 ml-1">
                 Your Email
               </label>
@@ -150,7 +150,7 @@ const ContactMe = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mb-8 relative group">
+            <motion.div variants={{itemVariants}} className="mb-8 relative group">
               <label htmlFor="desc" className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300 ml-1">
                 Message
               </label>
@@ -171,7 +171,7 @@ const ContactMe = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-col items-center">
+            <motion.div variants={{itemVariants}} className="flex flex-col items-center">
               <motion.button 
                 type="submit" 
                 disabled={status === "loading" || status === "success"}
