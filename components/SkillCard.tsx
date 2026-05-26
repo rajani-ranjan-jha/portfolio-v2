@@ -9,6 +9,7 @@ type Skill = {
   category: string;
   level: number;
   url?: string;
+  icon: React.ReactNode;
 };
 
 const SkillCard = ({ SkillData }: { SkillData: Skill[] }) => {
@@ -61,17 +62,11 @@ const SkillCard = ({ SkillData }: { SkillData: Skill[] }) => {
                   y: -5,
                   boxShadow: "0 10px 20px -10px rgba(0,0,0,0.1)",
                 }}
-                className="bg-card px-4 py-3 rounded-xl border border-border flex items-center gap-3 shadow-sm hover:border-primary/50 transition-colors cursor-default"
+                className="group bg-card px-4 py-3 rounded-xl border border-border flex items-center gap-3 shadow-sm hover:border-primary/50 transition-colors cursor-default"
               >
-                <div className="w-2 h-2 rounded-full bg-primary/60" />
-                <Image
-                  width={20}
-                  height={20}
-                  src={`/assets/skills/${skill.name.toLowerCase().replaceAll(" ", "")}.png`}
-                  alt={skill.name}
-                  // fill
-                  className="object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
+                <div className="text-xl text-primary/70 group-hover:text-primary transition-colors flex items-center justify-center">
+                  {skill.icon}
+                </div>
                 <span className="font-medium capitalize">{skill.name}</span>
               </motion.div>
             ))}

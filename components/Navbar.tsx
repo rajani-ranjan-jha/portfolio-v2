@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ModeToggle } from './Theme'
-import { Menu, X } from 'lucide-react'
+import { FiMenu, FiX } from "react-icons/fi"
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -103,9 +103,9 @@ const Navbar = () => {
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className="p-2 text-foreground"
-                            >
-                                {mobileMenuOpen ? <X /> : <Menu />}
-                            </button>
+                             >
+                                 {mobileMenuOpen ? <FiX /> : <FiMenu />}
+                             </button>
                         </div>
                     </nav>
                 </div>

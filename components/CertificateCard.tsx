@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { motion } from 'motion/react'
+import { FiExternalLink } from 'react-icons/fi';
 
 
 type Certificate = {
@@ -33,25 +34,19 @@ const CertificateCard = ({ CertificateData }: { CertificateData: Certificate[] }
             viewport={{ once: true }}
             className="group relative bg-card rounded-xl overflow-hidden border border-border hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
           >
-            {/* Image Container */}
-            <div className="relative h-48 w-full overflow-hidden">
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
-              <Image
-                src={`/assets/certificates/${certificate.mediaUrl}`}
-                alt={certificate.name}
-                fill
-                className="object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
+            
 
             {/* Content */}
-            <div className="p-6 flex flex-col grow">
+            <div className="p-6 flex flex-col grow h-72">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                 {certificate.name}
               </h3>
-              <p className="text-muted-foreground text-sm line-clamp-3 mb-4 grow">
+              <p className="text-muted-foreground text-sm line-clamp-3 mb-4 grow text-wrap">
                 {certificate.description}
               </p>
+              <a href={certificate.mediaUrl} target="_blank" className="flex justify-center items-center gap-2 text-primary hover:underline w-fit">
+                View Certificate <FiExternalLink size={18} className='text-primary'/>
+              </a>
               
             </div>
           </motion.div>

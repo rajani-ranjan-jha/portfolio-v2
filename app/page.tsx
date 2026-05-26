@@ -1,12 +1,32 @@
 "use client";
-
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SkillCard from "@/components/SkillCard";
 import ProjectCard from "@/components/ProjectCard";
 import CertificateCard from "@/components/CertificateCard";
-import Contact from "@/components/Contact";
+import ContactMe from "@/components/ContactMe";
+import { 
+  SiPython, 
+  SiJavascript, 
+  SiTypescript, 
+  SiHtml5, 
+  SiCss, 
+  SiReact, 
+  SiRedux, 
+  SiExpress, 
+  SiNextdotjs, 
+  SiMongodb, 
+  SiMysql, 
+  SiPostgresql, 
+  SiTailwindcss, 
+  SiBootstrap, 
+  SiVite, 
+  SiStrapi, 
+  SiWordpress, 
+  SiVercel, 
+  SiNetlify, 
+  SiRender 
+} from "react-icons/si";
 
 // Define structured data types
 type Skill = {
@@ -14,6 +34,7 @@ type Skill = {
   category: "language" | "library" | "database" | "bundler" | "Content Management System" | "deployment" | "other";
   level: number;
   url?: string;
+  icon: React.ReactNode;
 };
 
 type Project = {
@@ -34,26 +55,26 @@ type Certificate = {
 export default function Home() {
 
   const skills: Skill[] = [
-    { name: "python", category: "language", level: 80 },
-    { name: "javascript", category: "language", level: 70 },
-    { name: "typescript", category: "language", level: 50 },
-    { name: "HTML", category: "language", level: 95 },
-    { name: "CSS", category: "language", level: 95 },
-    { name: "react", category: "library", level: 60 },
-    { name: "redux toolkit", category: "library", level: 60 },
-    { name: "express", category: "library", level: 80 },
-    { name: "nextJS", category: "language", level: 75 },
-    { name: "mongoDB", category: "database", level: 75 },
-    { name: "mySQL", category: "database", level: 60 },
-    { name: "postgreSQL", category: "database", level: 10 },
-    { name: "tailwind CSS", category: "language", level: 90 },
-    { name: "bootstrap", category: "language", level: 80 },
-    { name: "vite", category: "bundler", level: 95 },
-    { name: "strapi", category: "Content Management System", level: 95 },
-    { name: "wordpress", category: "Content Management System", level: 95 },
-    { name: "vercel", category: "deployment", level: 95 },
-    { name: "netlify", category: "deployment", level: 95 },
-    { name: "render", category: "deployment", level: 95 },
+    { name: "python", category: "language", level: 80, icon: <SiPython /> },
+    { name: "javascript", category: "language", level: 70, icon: <SiJavascript /> },
+    { name: "typescript", category: "language", level: 50, icon: <SiTypescript /> },
+    { name: "HTML", category: "language", level: 95, icon: <SiHtml5 /> },
+    { name: "CSS", category: "language", level: 95, icon: <SiCss /> },
+    { name: "react", category: "library", level: 60, icon: <SiReact /> },
+    { name: "redux toolkit", category: "library", level: 60, icon: <SiRedux /> },
+    { name: "express", category: "library", level: 80, icon: <SiExpress /> },
+    { name: "nextJS", category: "language", level: 75, icon: <SiNextdotjs /> },
+    { name: "mongoDB", category: "database", level: 75, icon: <SiMongodb /> },
+    { name: "mySQL", category: "database", level: 60, icon: <SiMysql /> },
+    { name: "postgreSQL", category: "database", level: 10, icon: <SiPostgresql /> },
+    { name: "tailwind CSS", category: "language", level: 90, icon: <SiTailwindcss /> },
+    { name: "bootstrap", category: "language", level: 80, icon: <SiBootstrap /> },
+    { name: "vite", category: "bundler", level: 95, icon: <SiVite /> },
+    { name: "strapi", category: "Content Management System", level: 95, icon: <SiStrapi /> },
+    { name: "wordpress", category: "Content Management System", level: 95, icon: <SiWordpress /> },
+    { name: "vercel", category: "deployment", level: 95, icon: <SiVercel /> },
+    { name: "netlify", category: "deployment", level: 95, icon: <SiNetlify /> },
+    { name: "render", category: "deployment", level: 95, icon: <SiRender /> },
   ];
 
   const projects: Project[] = [
@@ -128,26 +149,31 @@ export default function Home() {
 
   const certificates: Certificate[] = [
     {
+      name: "Google AI essentials",
+      description: "Google AI Essentials is a beginner-friendly, self-paced online course designed to help professionals boost workplace productivity using generative AI. Created by Google experts, it takes under 10 hours to complete and teaches practical skills like effective prompt writing, task automation, and responsible AI usage.",
+      mediaUrl: 'https://drive.google.com/file/d/1jrA7BGZxsU0MEgzmDlsJIw73FzpoW06B/view?usp=sharing',
+    },
+    {
       name: "GUVI FullStack Development Course",
       description: "Completed a comprehensive full-stack development self-paced learning program at GUVI, covering various technologies and tools used in modern web development.",
-      mediaUrl: 'guvi-fullstack-development-course.png'
+      mediaUrl: 'https://drive.google.com/file/d/11BDniY8eXjJ3CBIo__qb8rQ_t8IFJ3DH/view?usp=drive_link'
     },
     {
       name: "GUVI FullStack internship",
       description: "Completed a full-stack development virtual-internship at GUVI, gaining hands-on experience in building modern web applications.",
-      mediaUrl: 'guvi-fullstack-internship.jpg'
+      mediaUrl: 'https://drive.google.com/file/d/1cUT0qNG1KDb52p9754zjcwdLjDyObL2J/view?usp=drive_link'
     },
   ]
 
   return (
-    <main className="min-h-screen font-sans bg-background text-foreground selection:bg-primary/20 selection:text-primary transition-all duration-300 ease-in-out">
+    <main className="font-poppins min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary transition-all duration-300 ease-in-out">
       <Navbar />
       <div className="container mx-auto px-4 md:px-8 space-y-24 pb-24">
         <Hero />
         <SkillCard SkillData={skills} />
         <ProjectCard ProjectData={projects} />
         <CertificateCard CertificateData={certificates}/>
-        <Contact/>
+        <ContactMe/>
       </div>
     </main>
   );

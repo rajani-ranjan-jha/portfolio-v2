@@ -2,7 +2,8 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { Github, ExternalLink } from 'lucide-react'
+import { FaGithub } from "react-icons/fa"
+import { FiExternalLink } from "react-icons/fi"
 
 
 type Project = {
@@ -24,9 +25,9 @@ const ProjectCard = ({ ProjectData }: { ProjectData: Project[] }) => {
   useEffect(() => {
     const sorted = [...ProjectData].sort((a, b) => {
       const levelOrder = {
-        basic: 1,
+        basic: 3,
         intermediate: 2,
-        advanced: 3
+        advanced: 1
       };
       return levelOrder[a.level] - levelOrder[b.level];
     });
@@ -120,7 +121,7 @@ const ProjectCard = ({ ProjectData }: { ProjectData: Project[] }) => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
                     >
-                      <Github className="w-4 h-4" />
+                      <FaGithub className="w-4 h-4" />
                       Code
                     </a>
                     {project.liveUrl && (
@@ -130,8 +131,8 @@ const ProjectCard = ({ ProjectData }: { ProjectData: Project[] }) => {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors ml-auto"
                       >
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
+                        <FiExternalLink className="w-4 h-4" />
+                        Link
                       </a>
                     )}
                   </div>

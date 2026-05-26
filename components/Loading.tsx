@@ -1,5 +1,4 @@
 "use client";
-import { Smile } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 const Loading = () => {
